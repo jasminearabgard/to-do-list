@@ -1,11 +1,11 @@
 //get objects
-let input = document.querySelector("#todo");
+let input = document.querySelector("#");
 let btn = document.querySelector("#btn");
-let list = document.querySelector("#list");
+let list = document.getElementById("list");
 let el = document.getElementsByTagName("li");
 
 //add element
-btn.addEventListener("click", () => {
+btn.addEventListener("click", function() {
     let txt = input.Value;
     if (txt === "") {
         alert("you most write some thing");
@@ -19,8 +19,8 @@ btn.addEventListener("click", () => {
 
 //mark done subject
 
-list.addEventListener("click", e => {
-    if (e.target.tagName == "li") {
+list.addEventListener("click", function e() {
+    if (e.target.tagName == "LI") {
         e.target.classList.toggle("checked");
     }
-});
+})

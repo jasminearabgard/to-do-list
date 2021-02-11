@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/df75c3797d.js" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
     <title>TO DO LIST</title>
 </head>
 
@@ -32,6 +32,34 @@
             </ul>
         </div>
     </div>
+    <script>
+        //get objects
+        let input = document.querySelector("#todo");
+        let btn = document.querySelector("#btn");
+        let list = document.querySelector("#list");
+        let el = document.getElementsByTagName("li");
+
+        //add element
+        btn.addEventListener("click", function() {
+            let txt = input.Value;
+            if (txt === "") {
+                alert("you most write some thing");
+            } else {
+                let li = document.createElement("li");
+                li.innerHTML = txt;
+                list.insertBefore(li, list.childNodes[0]);
+                input.value = "";
+            }
+        })
+
+        //mark done subject
+
+        list.addEventListener("click", function e() {
+            if (el.target.TagName == "li") {
+                el.target.classList.toggle("checked");
+            }
+        });
+    </script>
 </body>
 
 </html>
