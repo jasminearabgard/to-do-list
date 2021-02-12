@@ -140,12 +140,18 @@
     .container {
         display: flex;
         width: 30%;
-        height: 50vh;
+        height: 100vh;
         background-color: #ffffff;
         flex-flow: column;
         align-items: center;
         border-radius: 5px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        align-self: flex-start;
+        margin: 10px;
     }
     /*---------------------------------------------add-element----------------------------------------------------*/
     
@@ -196,7 +202,7 @@
     
     li {
         display: flex;
-        width: 100%;
+        width: 96%;
         height: 20px;
         padding: 3px 0px;
         background-color: #aee3fb;
@@ -207,7 +213,24 @@
     }
     
     li:hover {
-        background-color: #f8f0a5;
+        background-color: #cacac8;
+    }
+    
+    li.checked {
+        background: rgb(82, 146, 94);
+        color: #fff;
+    }
+    
+    li.checked::before {
+        position: absolute;
+        border-color: #fff;
+        border-style: solid;
+        border-width: 0 2px 2px 0;
+        top: 10px;
+        left: 16px;
+        transform: rotate(45deg);
+        height: 15px;
+        width: 7px;
     }
     
     span {
@@ -217,8 +240,4 @@
     i {
         color: #ff2e4c;
         margin-right: 5px;
-    }
-    
-    .ckecked {
-        background-color: cornflowerblue;
     }

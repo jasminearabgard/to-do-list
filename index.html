@@ -19,29 +19,27 @@
         </div>
         <div class="element">
             <ul id="list">
-                <span>
-                <li>Go to gym<i class="fa fa-trash-o" aria-hidden="true"></i></li>
-            </span>
-                <span>
-                <li>By some milk<i class="fa fa-trash-o" aria-hidden="true"></i></li>
-                </span>
-                </span>
-                <span>
-                <li>Take a shower<i class="fa fa-trash-o" aria-hidden="true"></i></li>
-            </span>
+                <li>Go to gym<span>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="edit()"></i>
+                    <i class="fa fa-trash-o" aria-hidden="true" onclick="trash()"></i>
+                </span></li>
             </ul>
         </div>
     </div>
     <script>
         //get objects
+
         let input = document.querySelector("#todo");
         let btn = document.querySelector("#btn");
         let list = document.querySelector("#list");
         let el = document.getElementsByTagName("li");
+        let trash = document.getElementsByClassName("fa-trash-o");
+        let edit = document.getElementsByClassName("fa-pencil-square-o");
 
         //add element
+
         btn.addEventListener("click", function() {
-            let txt = input.Value;
+            let txt = input.value;
             if (txt === "") {
                 alert("you most write some thing");
             } else {
@@ -54,11 +52,13 @@
 
         //mark done subject
 
-        list.addEventListener("click", function e() {
-            if (el.target.TagName == "li") {
-                el.target.classList.toggle("checked");
+        list.addEventListener("click", e => {
+            if (e.target.tagName == "LI") {
+                e.target.classList.toggle("checked");
             }
         });
+
+        //delete element
     </script>
 </body>
 
