@@ -18,10 +18,9 @@
             <button id="btn">add</button>
         </div>
         <div class="element">
-            <ul id="list">
+            <ul id="fa-ul">
                 <li>Go to gym<span>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true" onclick="edit()"></i>
-                    <i class="fa fa-trash-o" aria-hidden="true" onclick="trash()"></i>
+                    <i class="fa fa-trash" aria-hidden="true" id="trash"></i>
                 </span></li>
             </ul>
         </div>
@@ -33,7 +32,7 @@
         let btn = document.querySelector("#btn");
         let list = document.querySelector("#list");
         let el = document.getElementsByTagName("li");
-        let trash = document.getElementsByClassName("fa-trash-o");
+        let trash = document.getElementsById("fa-trash-o");
         let edit = document.getElementsByClassName("fa-pencil-square-o");
 
         //add element
@@ -48,7 +47,8 @@
                 list.insertBefore(li, list.childNodes[0]);
                 input.value = "";
             }
-        })
+            let i = document.createElement("fa-pencil-square-o");
+        });
 
         //mark done subject
 
@@ -58,7 +58,11 @@
             }
         });
 
-        //delete element
+        // //delete element
+
+        trash.addEventListener('click', function(e) {
+            list.cildNode.removeChild(el);
+        });
     </script>
 </body>
 
