@@ -50,6 +50,7 @@
                 let i;
                 for (i = 0; i < trash.lenght; i++) {
                     let trashIcon = document.createElement(trash);
+                    li.appendChild(trashIcon);
                     trash.addEventListener('click', function() {
                         list.remove("li");
                     })
