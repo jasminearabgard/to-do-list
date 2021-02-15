@@ -14,7 +14,7 @@
     <div class="container">
         <h1>TO-DO list</h1>
         <div class="add-element">
-            <input type="text" id="todo" placeholder="Type something here to do">
+            <input type="text" id="todo" placeholder="Type something here to do...">
             <button id="btn">add</button>
         </div>
         <div class="element">
@@ -42,11 +42,18 @@
                 let t = document.createTextNode(txt);
                 li.appendChild(t);
                 if (txt === "") {
-                    alert("you most write some thing");
+                    alert("You most write some thing.");
                 } else {
                     list.appendChild(li);
                 }
                 txt.value = "";
+                let i;
+                for (i = 0; i < trash.lenght; i++) {
+                    let trashIcon = document.createElement(trash);
+                    trash.addEventListener('click', function() {
+                        list.remove("li");
+                    })
+                }
             })
             //mark done subject
 
@@ -57,10 +64,6 @@
         });
 
         //delete element
-
-        trash.addEventListener('click', function() {
-            list.remove("li");
-        });
     </script>
 </body>
 
