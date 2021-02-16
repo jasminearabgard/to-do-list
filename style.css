@@ -202,14 +202,15 @@
     
     li {
         display: flex;
-        width: 96%;
-        height: 20px;
-        padding: 3px 0px;
+        width: 97%;
+        height: 30px;
         background-color: #aee3fb;
         justify-content: space-between;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         margin: 5px;
         cursor: pointer;
+        border-radius: 5px;
+        align-items: center;
     }
     
     li:hover {
@@ -226,8 +227,6 @@
         border-color: #fff;
         border-style: solid;
         border-width: 0 2px 2px 0;
-        top: 10px;
-        left: 16px;
         transform: rotate(45deg);
         height: 15px;
         width: 7px;
@@ -239,5 +238,8 @@
     
     i {
         color: #ff2e4c;
+    }
+    
+    button {
         margin-right: 5px;
     }

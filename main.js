@@ -1,28 +1,37 @@
- //get objects//
+  //get objects
 
- let input = document.querySelector("#todo");
- let btn = document.querySelector("#btn");
- let list = document.querySelector("#list");
- let el = document.getElementsByTagName("li");
+  let input = document.querySelector("#todo");
+  let btn = document.querySelector("#btn");
+  let list = document.querySelector("#fa-ul");
+  let el = document.getElementsByTagName("li");
+  let trash = document.getElementsByClassName("fa-trash");
 
- //add element//
+  //add element
 
- btn.addEventListener("click", function() {
-     let txt = input.value;
-     if (txt === "") {
-         alert("you most write some thing");
-     } else {
-         let li = document.createElement("li");
-         li.innerHTML = txt;
-         list.insertBefore(li, list.childNodes[0]);
-         input.value = "";
-     }
- })
+  btn.addEventListener("click", function() {
+      let txt = input.value;
+      let li = document.createElement("li");
+      let t = document.createTextNode(txt);
+      li.appendChild(t);
+      if (txt === "") {
+          alert("You most write some thing.");
+      } else {
+          list.appendChild(li);
+      }
+      txt.value = "";
+      let i;
+      for (i = 0; i < trash.lenght; i++) {
+          let trashIcon = document.createElement(trash);
+          li.appendChild(trashIcon);
+          trash.addEventListener("click", function() {
+              list.remove("li");
+          });
+      }
+  });
+  //mark done subject
 
- //mark done subject//
-
- list.addEventListener("click", e => {
-     if (e.target.tagName == "LI") {
-         e.target.classList.toggle("checked");
-     }
- });
+  list.addEventListener("click", e => {
+      if (e.target.tagName == "LI") {
+          e.target.classList.toggle("checked");
+      }
+  })
