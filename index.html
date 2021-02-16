@@ -34,8 +34,6 @@
         let input = document.querySelector("#todo");
         let btn = document.querySelector("#btn");
         let list = document.querySelector("#fa-ul");
-        let el = document.getElementsByTagName("li");
-        let deleteBtn = document.getElementsByClassName("remove");
 
         //add element
 
@@ -43,7 +41,9 @@
             let txt = input.value;
             let li = document.createElement("li");
             let t = document.createTextNode(txt);
+            let btn = document.createElement("remove");
             li.appendChild(t);
+            li.appendChild(btn);
             if (txt === "") {
                 alert("You most write some thing.");
             } else {
@@ -51,13 +51,7 @@
             }
             txt.value = "";
 
-            //append delete button to every item 
-            function append() {
-                let btn = document.createElement("remove");
-                let icon = document.createElement("I")
-                li.appendChild(icon);
-                list.appendChild(btn);
-            }
+            //append delete button to every new list item 
         });
 
         //mark done subject
