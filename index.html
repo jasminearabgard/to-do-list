@@ -22,6 +22,9 @@
                 <li>Go to gym<span>
                    <button class="remove" onclick="delbtn()"><i class="fa fa-trash" aria-hidden="true" id="trash"></i></button>
                 </span></li>
+                <li>Take a shower<span>
+                    <button class="remove" onclick="delbtn()"><i class="fa fa-trash" aria-hidden="true" id="trash"></i></button>
+                 </span></li>
             </ul>
         </div>
     </div>
@@ -47,19 +50,28 @@
                 list.appendChild(li);
             }
             txt.value = "";
+
+            //append delete button to every item 
+            function append() {
+                let delBtn = document.createElement("remove");
+                delBtn.appendChild(t);
+                li.appendChild(delBtn);
+            }
         });
+
         //mark done subject
 
         list.addEventListener("click", e => {
-            if (e.target.tagName == "") {
+            if (e.target.tagName == "LI") {
                 e.target.classList.toggle("checked");
             }
         });
 
         //delete element     
+
         function delbtn() {
-            list.remove("li");
-        };
+            list.parentNode.removeChild(list);
+        }
     </script>
 </body>
 
