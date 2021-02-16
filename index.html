@@ -53,9 +53,10 @@
 
             //append delete button to every item 
             function append() {
-                let delBtn = document.createElement("remove");
-                li.appendChild(t);
-                list.appendChild(delBtn);
+                let btn = document.createElement("remove");
+                let icon = document.createElement("I")
+                li.appendChild(icon);
+                list.appendChild(btn);
             }
         });
 
