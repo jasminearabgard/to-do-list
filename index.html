@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/df75c3797d.js" crossorigin="anonymous"></script>
-    <!-- <script src="main.js"></script> -->
     <title>TO DO LIST</title>
 </head>
 
@@ -22,8 +21,7 @@
         </div>
     </div>
     <script>
-        //get objects
-
+        //get elements
         let input = document.querySelector("#todo");
         let btn = document.querySelector("#btn");
         let list = document.querySelector("#fa-ul");
@@ -31,9 +29,12 @@
         //add element
 
         btn.addEventListener("click", function() {
+            let icons = document.createElement("div"); //create a div 
+            icons.classList = "icons"; //append class to top line div
             let txt = input.value;
             let li = document.createElement("li");
             let t = document.createTextNode(txt);
+            li.appendChild(icons); //apend that div in li
             li.appendChild(t);
             if (txt === "" || txt < 1) {
                 alert("You most write some thing.");
@@ -41,23 +42,29 @@
                 list.appendChild(li);
             }
             txt.value = "";
+
             //append button
-            let dicon = document.createElement("i");
-            dicon.classList = "fa fa-trash";
-            li.appendChild(dicon);
-            dicon.addEventListener("click", function() {
-                var div = this.parentElement;
-                div.style.display = "none";
+            let dIcon = document.createElement("i");
+            let eIcon = document.createElement("i");
+            dIcon.classList = "fa fa-trash";
+            eIcon.classList = "fa fa-pencil-square-o";
+            icons.appendChild(dIcon); //append icon to new div
+            icons.appendChild(eIcon); //append icon to new div
+            dIcon.addEventListener("click", function deleteLi() {
+                li.style.display = "none";
             })
         });
 
         //mark done subject
-
         list.addEventListener("click", e => {
             if (e.target.tagName == "LI") {
                 e.target.classList.toggle("checked");
             }
         });
+
+        function deleteitem() {
+            dIcon.onclick = deleteLi();
+        }
     </script>
 </body>
 
