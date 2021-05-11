@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/df75c3797d.js" crossorigin="anonymous"></script>
-    <title>TO DO LIST</title>
+    <title>TO-DO</title>
 </head>
 
 <body>
@@ -14,18 +14,26 @@
         <h1>TO-DO list</h1>
         <div class="add-element">
             <input type="text" id="todo" placeholder="Type something here to do...">
-            <button id="btn">add</button>
+            <button id="btn">Add</button>
+        </div>
+        <div id="edit_box">
+            <input type="text" id="edit">
+            <button type="submit" id="submit-btn">Done</button>
         </div>
         <div class="element">
             <ul id="fa-ul"></ul>
         </div>
     </div>
+
     <script>
         //get elements
         let input = document.querySelector("#todo");
         let btn = document.querySelector("#btn");
         let list = document.querySelector("#fa-ul");
         let delbtn = document.querySelector("#delbtn");
+        let inputedit = document.getElementById("edit");
+        let submitBtn = document.getElementById("submit-btn");
+        let editBox = document.getElementById("edit_box");
         //add element
 
         btn.addEventListener("click", function() {
@@ -41,7 +49,6 @@
             } else {
                 list.appendChild(li);
             }
-            txt.value = "";
 
             //append button
             let dIcon = document.createElement("i");
@@ -53,6 +60,14 @@
             dIcon.addEventListener("click", function deleteLi() {
                 li.style.display = "none";
             })
+            eIcon.addEventListener("click", function() {
+                editBox.style.display = "block";
+                editBox.style.display = "flex";
+                inputedit.value = txt;
+                li.style.display = "none";
+
+            })
+            input.value = "";
         });
 
         //mark done subject
@@ -65,6 +80,24 @@
         function deleteitem() {
             dIcon.onclick = deleteLi();
         }
+        submitBtn.addEventListener("click", function() {
+            let icons = document.createElement("div");
+            let newText = inputedit.value;
+            let newInputTxt = document.createTextNode(newText);
+            let li = document.createElement("li");
+            icons.classList = "icons";
+            li.appendChild(icons);
+            list.appendChild(li);
+            li.appendChild(newInputTxt);
+
+            //appned again
+            let dIcon = document.createElement("i");
+            let eIcon = document.createElement("i");
+            dIcon.classList = "fa fa-trash";
+            eIcon.classList = "fa fa-pencil-square-o";
+            icons.appendChild(dIcon);
+            icons.appendChild(eIcon);
+        });
     </script>
 </body>
 
